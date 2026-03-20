@@ -60,7 +60,7 @@ export const useAuthStore = create<AuthState>()(
       },
 
       logout: async () => {
-        try { await authApi.logout(); } catch { /* ignore */ }
+        try { await authApi.logout(); } catch (err) { console.error('Logout API error:', err); }
         localStorage.removeItem('token');
         Cookies.remove('token');
         Cookies.remove('refreshToken');

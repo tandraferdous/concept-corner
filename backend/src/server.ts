@@ -4,7 +4,6 @@ import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
 import mongoSanitize from 'express-mongo-sanitize';
-// @ts-expect-error xss-clean has no type declarations
 import xssClean from 'xss-clean';
 
 import connectDB from './config/database';

@@ -137,3 +137,18 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Backend build output
+backend/dist/
+
+# Frontend build output
+frontend/.next/
+frontend/out/
+
+# Environment files (keep .env.example files)
+backend/.env
+frontend/.env.local
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -3,6 +3,12 @@ import Cookies from 'js-cookie';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
 
+/** Returns the stored JWT token from localStorage (client) or cookie. */
+const getStoredToken = (): string | undefined =>
+  typeof window !== 'undefined'
+    ? (localStorage.getItem('token') ?? undefined) || Cookies.get('token')
+    : Cookies.get('token');
+
 const api = axios.create({
   baseURL: API_URL,
   headers: { 'Content-Type': 'application/json' },
@@ -12,10 +18,7 @@ const api = axios.create({
 // Request interceptor — attach JWT
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token =
-      typeof window !== 'undefined'
-        ? localStorage.getItem('token') || Cookies.get('token')
-        : Cookies.get('token');
+    const token = getStoredToken();
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }

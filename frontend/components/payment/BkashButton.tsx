@@ -159,7 +159,7 @@ export default function BkashButton({
             <div className="p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-2xl">
               <h3 className="text-white font-semibold mb-1">Verify your payment</h3>
               <p className="text-white/60 text-sm">
-                Send {formatPrice(amount)} to bKash number <strong className="text-white">{process.env.NEXT_PUBLIC_BKASH_MERCHANT_NUMBER ?? 'our bKash merchant number'}</strong> and enter the Transaction ID below.
+                Send {formatPrice(amount)} to bKash number <strong className="text-white">{process.env.NEXT_PUBLIC_BKASH_MERCHANT_NUMBER ?? 'the merchant bKash number (contact support)'}</strong> and enter the Transaction ID below.
               </p>
             </div>
             <Input
